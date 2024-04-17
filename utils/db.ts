@@ -1,8 +1,6 @@
-// utils/db.ts
-
 import mongoose from 'mongoose';
 
-const mongoURI = process.env.MONGODB_URI;
+const mongoURI = process.env.MONGODB_URI || 'default_connection_string';
 if (!mongoURI) {
   throw new Error('MongoDB URI is not defined in the environment variables.');
 }
@@ -10,8 +8,7 @@ if (!mongoURI) {
 export async function connectDatabase() {
   try {
     await mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+
     });
     console.log('Connected to MongoDB');
   } catch (error) {

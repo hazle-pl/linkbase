@@ -1,11 +1,11 @@
-// utils/db.ts
 import { MongoClient, Db } from 'mongodb';
 
-const client = new MongoClient(process.env.MONGODB_URI, {
-  // Remove deprecated options
-  // useNewUrlParser: true,
-  // useUnifiedTopology: true,
-});
+const mongoURI = process.env.MONGODB_URI;
+if (!mongoURI) {
+  throw new Error('MongoDB URI is not defined in the environment variables.');
+}
+
+const client = new MongoClient(mongoURI);
 
 let db: Db;
 

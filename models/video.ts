@@ -1,8 +1,9 @@
 // models/record.ts
 import mongoose, { Schema, Document, Model } from 'mongoose';
 
-export interface RecordModel extends Document {
+export interface VideoModel extends Document {
   title: string;
+  description: string;
   category: string;
   year: string;
   director: string;
@@ -14,8 +15,9 @@ export interface RecordModel extends Document {
   episode?: string;
 }
 
-const recordSchema: Schema = new Schema({
+const videoSchema: Schema = new Schema({
   title: { type: String, required: true },
+  description: { type: String, required: true },
   category: { type: String, required: true },
   year: { type: String, required: true },
   director: { type: String, required: true },
@@ -28,4 +30,4 @@ const recordSchema: Schema = new Schema({
 });
 
 // Define and export the model for the Record document
-export default mongoose.models.Record || mongoose.model<RecordModel>('Record', recordSchema);
+export default mongoose.models.Video || mongoose.model<VideoModel>('Video', videoSchema);

@@ -1,7 +1,7 @@
 // pages/api/records.ts
 import { NextApiRequest, NextApiResponse } from 'next';
 import { connectDatabase } from '../../utils/db';
-import Record, { RecordModel } from '../../models/record';
+import Video, { VideoModel } from '../../models/video';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
@@ -9,6 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       await connectDatabase();
       const {
         title,
+        description,
         category,
         year,
         director,
@@ -20,8 +21,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         episode,
       } = req.body;
 
-      const newRecord: RecordModel = new Record({
+      const newRecord: VideoModel = new Video({
         title,
+        description,
         category,
         year,
         director,

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 
 const AddPage: React.FC = () => {
   const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [year, setYear] = useState('');
   const [director, setDirector] = useState('');
   const [category, setCategory] = useState('action');
@@ -20,6 +21,7 @@ const AddPage: React.FC = () => {
 
       const requestData = {
         title,
+        description,
         category,
         year,
         director,
@@ -31,7 +33,7 @@ const AddPage: React.FC = () => {
         episode: type === 'series' ? episode : null,
       };
   
-      const response = await fetch('/api/records', {
+      const response = await fetch('/api/add_videos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,6 +56,7 @@ const AddPage: React.FC = () => {
   return (
     <div>
       <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
+      <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" />
       <select value={category} onChange={(e) => setCategory(e.target.value)}>
         <option value="horror">Horror</option>
         <option value="thriller">Thriller</option>

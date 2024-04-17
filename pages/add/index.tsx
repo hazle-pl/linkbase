@@ -6,6 +6,7 @@ const AddPage: React.FC = () => {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
   const [director, setDirector] = useState('');
+  const [category, setCategory] = useState('action');
   const [type, setType] = useState('movie');
   const [source, setSource] = useState('');
   const [thumbnail, setThumbnail] = useState('');
@@ -16,9 +17,10 @@ const AddPage: React.FC = () => {
 
   const handleAdd = async () => {
     try {
-        
+
       const requestData = {
         title,
+        category,
         year,
         director,
         type,
@@ -52,6 +54,29 @@ const AddPage: React.FC = () => {
   return (
     <div>
       <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
+      <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <option value="horror">Horror</option>
+        <option value="thriller">Thriller</option>
+        <option value="comedy">Comedy</option>
+        <option value="drama">Drama</option>
+        <option value="action">Action</option>
+        <option value="adventure">Adventure</option>
+        <option value="science-fiction">Science Fiction</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="romance">Romance</option>
+        <option value="animation">Animation</option>
+        <option value="crime">Crime</option>
+        <option value="mystery">Mystery</option>
+        <option value="documentary">Documentary</option>
+        <option value="family">Family</option>
+        <option value="history">History</option>
+        <option value="war">War</option>
+        <option value="music">Music</option>
+        <option value="western">Western</option>
+        <option value="sport">Sport</option>
+        <option value="biography">Biography</option>
+        <option value="musical">Musical</option>
+      </select>
       <input type="text" value={year} onChange={(e) => setYear(e.target.value)} placeholder="Year" />
       <input type="text" value={director} onChange={(e) => setDirector(e.target.value)} placeholder="Director" />
       <select value={type} onChange={(e) => setType(e.target.value)}>

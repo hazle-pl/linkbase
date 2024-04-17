@@ -1,15 +1,15 @@
 // pages/api/records.ts
-
 import { NextApiRequest, NextApiResponse } from 'next';
 import { connectDatabase } from '../../utils/db';
 import Record, { RecordModel } from '../../models/record';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     try {
       await connectDatabase();
       const {
         title,
+        category,
         year,
         director,
         type,
@@ -22,6 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
       const newRecord: RecordModel = new Record({
         title,
+        category,
         year,
         director,
         type,
@@ -40,4 +41,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       res.status(500).json({ error: 'Error adding record' });
     }
   }
-};
+}

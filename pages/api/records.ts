@@ -1,6 +1,8 @@
 // pages/api/records.ts
+
 import { NextApiRequest, NextApiResponse } from 'next';
-import { connectDatabase, getDb } from '../../utils/db';
+import { connectDatabase } from '../../utils/db';
+import Record, { RecordModel } from '../../models/record';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
@@ -12,14 +14,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         director,
         type,
         source,
-        thumbnail, // Assuming thumbnail is a URL to an image
-        background, // Assuming background is a URL to an image
-        season, // For series
-        episode, // For series
+        thumbnail,
+        background,
+        season,
+        episode,
       } = req.body;
 
-      const db = getDb();
-      await db.collection('records').insertOne({
+      const newRecord: RecordModel = new Record({
         title,
         year,
         director,
@@ -31,22 +32,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         episode,
       });
 
+      await newRecord.save();
+
       res.status(200).json({ message: 'Record added successfully' });
     } catch (error) {
       console.error('Error adding record:', error);
       res.status(500).json({ error: 'Error adding record' });
     }
-  } else if (req.method === 'GET') {
-    try {
-      await connectDatabase();
-      const db = getDb();
-      const records = await db.collection('records').find().toArray();
-      res.status(200).json(records);
-    } catch (error) {
-      console.error('Error fetching records:', error);
-      res.status(500).json({ error: 'Error fetching records' });
-    }
-  } else {
-    res.status(405).json({ error: 'Method Not Allowed' });
   }
 };

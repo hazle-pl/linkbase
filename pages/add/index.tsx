@@ -16,20 +16,15 @@ const AddPage: React.FC = () => {
 
   const handleAdd = async () => {
     try {
-      // Basic validation to check required fields
-      if (!title || !year || !director || !source) {
-        console.error('Please fill out all required fields');
-        return;
-      }
-  
+        
       const requestData = {
         title,
         year,
         director,
         type,
         source,
-        thumbnail: thumbnail || null,
-        background: background || null,
+        thumbnail,
+        background,
         season: type === 'series' ? season : null,
         episode: type === 'series' ? episode : null,
       };

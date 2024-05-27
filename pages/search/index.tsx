@@ -10,13 +10,13 @@ interface Film {
 }
 
 const SearchPage: React.FC = () => {
-  const [films, setFilms] = useState<Film[]>([]); // Define type for films state
+  const [films, setFilms] = useState<Film[]>([]);
 
   const fetchFilms = async (query = '') => {
     try {
       const response = await fetch(`/api/search?title=${query}`);
       if (response.ok) {
-        const data: Film[] = await response.json(); // Specify the type of data
+        const data: Film[] = await response.json();
         setFilms(data);
       } else {
         console.error('Failed to fetch films');

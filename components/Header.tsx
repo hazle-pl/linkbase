@@ -4,6 +4,9 @@ import SearchForm from './SearchForm';
 import { VideoModel } from '@/models/video';
 
 interface VideoProps {
+    _id: string | undefined;
+    title: string;
+    year: string;
     video: VideoModel;
   }
 

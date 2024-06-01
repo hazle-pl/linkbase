@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Video from './Video';
 import { VideoModel } from '@/models/video';
 
@@ -34,18 +37,41 @@ const Category: React.FC<LayoutProps> = ({ category }) => {
     fetchVideos(category);
   }, [category]);
 
+  // Slick settings for the carousel
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 6, // Adjust the number of visible items per screen size
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024, // Tablet
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 768, // Mobile
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="category">
       <h2>Category {category}</h2>
       {loading && <div>Loading...</div>}
       {error && <div>Error: {error}</div>}
-      <ul>
+      <Slider {...settings}>
         {videos.map((video) => (
-          <li key={video._id}>
+          <div key={video._id} className="slider-item">
             <Video video={video} />
-          </li>
+          </div>
         ))}
-      </ul>
+      </Slider>
     </div>
   );
 };

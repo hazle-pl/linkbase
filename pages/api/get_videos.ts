@@ -4,12 +4,14 @@ import Video, { VideoModel } from '../../models/video';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
-    const { category, title, limit, newest } = req.query;
+    const { _id, category, title, limit, newest, random } = req.query;
     try {
       await connectDatabase();
       let query: any = {};
 
-      if (title) {
+      if (_id) {
+        query._id = _id;
+      } else if (title) {
         query.title = { $regex: title.toString(), $options: 'i' };
       } else if (category) {
         query.category = { $regex: category.toString(), $options: 'i' };
@@ -18,7 +20,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const queryLimit = limit ? parseInt(limit.toString(), 10) : 10;
       const sortOrder = newest === 'true' ? -1 : 1;
 
-      const films = await Video.find(query).sort({ createdAt: sortOrder }).limit(queryLimit);
+      let films;
+      if (random === 'true') {
+        const count = await Video.countDocuments(query);
+        const randomIndex = Math.floor(Math.random() * count);
+        films = await Video.find(query).skip(randomIndex).limit(queryLimit);
+      } else {
+        films = await Video.find(query).sort({ createdAt: sortOrder }).limit(queryLimit);
+      }
+
       res.status(200).json(films);
 
     } catch (error) {

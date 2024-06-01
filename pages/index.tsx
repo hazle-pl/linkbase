@@ -1,12 +1,12 @@
-// pages/catalog/index.tsx
 import React from 'react';
 import Layout from '../components/Layout';
 import Category from '@/components/Category';
+import HeroBanner from '@/components/HeroBanner';
 
-const CatalogPage: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <Layout>
-      <div>Catalog Page</div>
+      <HeroBanner/>
       <Category category="horror"/>
       <Category category="drama"/>
       <Category category="action"/>
@@ -15,4 +15,4 @@ const CatalogPage: React.FC = () => {
   );
 };
 
-export default CatalogPage;
+export default Home;

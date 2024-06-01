@@ -13,6 +13,7 @@ export interface VideoModel extends Document {
   background: string;
   season?: string;
   episode?: string;
+  _id?: string;
 }
 
 const videoSchema: Schema = new Schema({
@@ -29,5 +30,4 @@ const videoSchema: Schema = new Schema({
   episode: { type: String },
 });
 
-// Define and export the model for the Record document
 export default mongoose.models.Video || mongoose.model<VideoModel>('Video', videoSchema);

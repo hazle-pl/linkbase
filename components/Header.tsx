@@ -36,9 +36,11 @@ const Header: React.FC = () => {
   return (
     <header>
       <div className="utility-bar component component-content">
-        <div className="logo">linkbase</div>
+        <div className="logo">
+        <Link href={`/`}>linkbase</Link>
+        </div>
         <div className="navigation">
-          <Link href={`/films`}>Filmy</Link>
+          <Link href={`/movies`}>Filmy</Link>
           <Link href={`/series`}>Seriale</Link>
           <Link href={`/category`}>Kategorie</Link>
         </div>

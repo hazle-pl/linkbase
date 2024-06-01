@@ -1,0 +1,25 @@
+.admin-panel{
+    table{
+        border: none;
+        border-collapse: collapse;
+
+        img{
+            width: 100px;
+        }
+
+        th{
+            padding: 10px;
+            background-color: var(--primary-100);
+        }
+        tr{
+            background-color: var(--neutral-000);
+
+            &:nth-child(2n){
+                background-color: var(--neutral-100);
+            }
+        }
+        td{
+            padding: 10px;
+        }
+    }
+}

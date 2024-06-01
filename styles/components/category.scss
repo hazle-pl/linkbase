@@ -1,0 +1,29 @@
+.category{
+    max-width: 1920px;
+    padding: 0 30px;
+    margin: auto;
+    margin-bottom: 60px;
+
+    .react-multi-carousel-track{
+        gap: 20px;
+    }
+
+    .react-multi-carousel-item{
+        transition: 0.25s;
+
+        &:hover{
+            width: 400px !important;
+
+            @media (max-width: 1920px) {
+                width: 350px !important;
+            }
+
+            @media (max-width: $tablet) {
+                width: 300px !important;
+            }
+            @media screen and (max-width: $mobile) {
+                width: 250px !important;
+            }
+        }
+    }
+}

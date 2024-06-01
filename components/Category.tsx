@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import Video from './Video';
 import { VideoModel } from '@/models/video';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 interface LayoutProps {
   category: string;
@@ -13,6 +12,26 @@ const Category: React.FC<LayoutProps> = ({ category }) => {
   const [videos, setVideos] = useState<VideoModel[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 9999, min: 1400 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 1400, min: 992 },
+      items: 4
+    },
+    tablet: {
+      breakpoint: { max: 992, min: 768 },
+      items: 3
+    },
+    mobile: {
+      breakpoint: { max: 768, min: 0 },
+      items: 2
+    }
+  };
+  
 
   const fetchVideos = async (category: string) => {
     try {
@@ -37,41 +56,16 @@ const Category: React.FC<LayoutProps> = ({ category }) => {
     fetchVideos(category);
   }, [category]);
 
-  // Slick settings for the carousel
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 6, // Adjust the number of visible items per screen size
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024, // Tablet
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 768, // Mobile
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-    ],
-  };
-
   return (
     <div className="category">
       <h2>Category {category}</h2>
       {loading && <div>Loading...</div>}
       {error && <div>Error: {error}</div>}
-      <Slider {...settings}>
+      <Carousel responsive={responsive}>
         {videos.map((video) => (
-          <div key={video._id} className="slider-item">
-            <Video video={video} />
-          </div>
+          <Video video={video} />
         ))}
-      </Slider>
+      </Carousel>
     </div>
   );
 };

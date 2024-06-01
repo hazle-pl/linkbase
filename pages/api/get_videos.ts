@@ -4,17 +4,27 @@ import Video, { VideoModel } from '../../models/video';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
-    const { _id, category, title, limit, newest, random } = req.query;
+    const { _id, category, title, limit, newest, random, all, type } = req.query;
     try {
       await connectDatabase();
       let query: any = {};
 
-      if (_id) {
-        query._id = _id;
-      } else if (title) {
-        query.title = { $regex: title.toString(), $options: 'i' };
-      } else if (category) {
-        query.category = { $regex: category.toString(), $options: 'i' };
+      if (all === 'true') {
+        query = {};
+      } else {
+        if (_id) {
+          query._id = _id;
+        } else if (title) {
+          query.title = { $regex: title.toString(), $options: 'i' };
+        } else if (category) {
+          query.category = { $regex: category.toString(), $options: 'i' };
+        }
+      }
+
+      if (type === 'movies') {
+        query.type = 'movie';
+      } else if (type === 'series') {
+        query.type = 'series';
       }
 
       const queryLimit = limit ? parseInt(limit.toString(), 10) : 10;
@@ -26,7 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const randomIndex = Math.floor(Math.random() * count);
         films = await Video.find(query).skip(randomIndex).limit(queryLimit);
       } else {
-        films = await Video.find(query).sort({ createdAt: sortOrder }).limit(queryLimit);
+        films = await Video.find(query).sort({ createdAt: sortOrder }).limit(all === 'true' ? 0 : queryLimit); // No limit if fetching all
       }
 
       res.status(200).json(films);

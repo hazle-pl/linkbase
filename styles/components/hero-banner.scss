@@ -3,10 +3,13 @@
     position: relative;
     border-radius: 25px;
     overflow: hidden;
+    margin-bottom: 30px;
+
     img{
         object-fit: cover;
         max-height: 70vh;
         width: 100%;
+        object-position: top;
 
         @media screen and (max-width: $tablet) {
             height: 70vh;

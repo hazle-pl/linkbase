@@ -9,11 +9,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       await connectDatabase();
       let query = {};
-      if (title) {
+      if (title && title.toString().trim() !== '') {
         query = { title: { $regex: title.toString(), $options: 'i' } };
+        const films = await Video.find(query);
+        res.status(200).json(films);
+      } else {
+        res.status(200).json([]);
       }
-      const films = await Video.find(query);
-      res.status(200).json(films);
     } catch (error) {
       console.error('Error fetching films:', error);
       res.status(500).json({ error: 'Error fetching films' });

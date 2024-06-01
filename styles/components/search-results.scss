@@ -1,0 +1,31 @@
+.results{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    left: 0px;
+    padding: 30px;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    
+    .component-content{
+        max-width: 1920px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        height: 100%;
+        width: 100%;
+        gap: 20px;
+        overflow: scroll;
+        max-height: calc(100vh - 200px);
+    
+        @media (max-width: $tablet) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media screen and (max-width: $mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+
+}

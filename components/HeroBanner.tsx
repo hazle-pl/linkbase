@@ -33,7 +33,7 @@ const HeroBanner: React.FC<HeroBannerProps> = ({ id }) => {
 
   useEffect(() => {
     fetchVideo();
-  }, [id]); // Fetch video whenever the title prop changes
+  }, [id]);
 
   return (
     <div className="hero-banner component full-width">

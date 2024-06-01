@@ -43,11 +43,6 @@ const Category: React.FC<LayoutProps> = ({ category }) => {
         {videos.map((video) => (
           <li key={video._id}>
             <Video video={video} />
-            <Video video={video} />
-            <Video video={video} />
-            <Video video={video} />
-            <Video video={video} />
-            <Video video={video} />
           </li>
         ))}
       </ul>

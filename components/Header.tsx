@@ -1,18 +1,19 @@
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import SearchForm from './SearchForm';
 import { VideoModel } from '@/models/video';
+import SearchResults from './SearchResults';
 
 interface VideoProps {
-    _id: string | undefined;
-    title: string;
-    year: string;
-    video: VideoModel;
-  }
+  _id: string | undefined;
+  title: string;
+  year: string;
+  video: VideoModel;
+}
 
 const Header: React.FC = () => {
-
-    const [videos, setFilms] = useState<VideoProps[]>([]);
+  const [videos, setFilms] = useState<VideoProps[]>([]);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const fetchFilms = async (query = '') => {
     try {
@@ -28,23 +29,38 @@ const Header: React.FC = () => {
     }
   };
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <header>
-        <div className="utility-bar component component-content">
-            <div className="logo">logo</div>
-            <SearchForm onSearch={fetchFilms} />
-            <div className="navigation">navigation</div>
+      <div className="utility-bar component component-content">
+        <div className="logo">linkbase</div>
+        <div className="navigation">
+          <Link href={`/films`}>Filmy</Link>
+          <Link href={`/series`}>Seriale</Link>
+          <Link href={`/category`}>Kategorie</Link>
         </div>
-        <div className="search-results">
-        <ul>
-        {videos.map((video) => (
-          <li id={video._id} key={video._id}>
-            {video.title} - {video.year}
-          </li>
-        ))}
-      </ul>
+        <SearchForm onSearch={fetchFilms} />
+        <div
+          className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}
+          onClick={toggleMobileMenu}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div className="mobile-navigation"></div>
+      </div>
+      {isMobileMenuOpen && (
+        <div className="mobile-navigation">
+          <SearchForm onSearch={fetchFilms} />
+          <Link href={`/films`}>Filmy</Link>
+          <Link href={`/series`}>Seriale</Link>
+          <Link href={`/category`}>Kategorie</Link>
+        </div>
+      )}
+            <SearchResults results={videos}/>
     </header>
   );
 };

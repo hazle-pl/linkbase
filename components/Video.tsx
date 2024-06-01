@@ -1,4 +1,5 @@
 import { VideoModel } from '@/models/video';
+import Link from 'next/link';
 import React from 'react';
 
 interface VideoProps {
@@ -7,11 +8,13 @@ interface VideoProps {
 
 const Video: React.FC<VideoProps> = ({ video }) => {
   return (
-    <div className="video">
-      <p>{video.title}</p>
-      <p>{video.description}</p>
-      {/* Add more fields as needed */}
-    </div>
+    <Link href={`video/${video._id}`}>
+      <div className="">
+        <div className="rich-text">
+          <h2>{video.title}</h2>
+        </div>
+      </div>
+    </Link>
   );
 };
 

@@ -85,7 +85,7 @@ header{
         @media screen and (max-width: $tablet) {
             display: none;
             display: flex;
-        flex-direction: column;
+            flex-direction: column;
           }
     }
       

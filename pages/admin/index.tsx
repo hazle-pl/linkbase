@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 interface Video {
   _id: string;
@@ -193,7 +194,7 @@ const AdminPanel: React.FC = () => {
                     onChange={e => handleInputChange(e, 'thumbnail')}
                   />
                 ) : (
-                  <img src={record.thumbnail} alt="Thumbnail" />
+                  <Image src={record.thumbnail} alt="Thumbnail" />
                 )}
               </td>
               <td>
@@ -203,10 +204,9 @@ const AdminPanel: React.FC = () => {
                     onChange={e => handleInputChange(e, 'background')}
                   />
                 ) : (
-                  <img src={record.background} alt="Background" />
+                  <Image src={record.background} alt="Background" />
                 )}
               </td>
-              {/* Add other table cells */}
               <td>
                 {editingRecord._id === record._id ? (
                   <button onClick={handleSaveChanges}>Save</button>

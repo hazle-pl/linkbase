@@ -62,8 +62,8 @@ const Category: React.FC<LayoutProps> = ({ category }) => {
       {loading && <div>Loading...</div>}
       {error && <div>Error: {error}</div>}
       <Carousel responsive={responsive}>
-        {videos.map((video) => (
-          <Video video={video} />
+        {videos.map((video,i) => (
+          <Video video={video} key={i} />
         ))}
       </Carousel>
     </div>

@@ -6,9 +6,11 @@ import "react-multi-carousel/lib/styles.css";
 
 interface LayoutProps {
   category: string;
+  similar?: boolean;
+  random?: boolean
 }
 
-const Category: React.FC<LayoutProps> = ({ category }) => {
+const Category: React.FC<LayoutProps> = ({ category, similar,random }) => {
   const [videos, setVideos] = useState<VideoModel[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -36,7 +38,8 @@ const Category: React.FC<LayoutProps> = ({ category }) => {
   const fetchVideos = async (category: string) => {
     try {
       setLoading(true);
-      const response = await fetch(`/api/get_videos?category=${category}`);
+      const response = await fetch(`/api/get_videos?category=${category}${random ? '&random=true' : ''}`);
+
       if (response.ok) {
         const data: VideoModel[] = await response.json();
         setVideos(data);
@@ -58,7 +61,11 @@ const Category: React.FC<LayoutProps> = ({ category }) => {
 
   return (
     <div className="category">
-      <h2>Category {category}</h2>
+      {similar ? (
+        <h2>Podobne filmy</h2>
+      ) : (
+        <h2>Kategoria {category}</h2>
+      )}
       {loading && 
       <Carousel responsive={responsive}>
         <Video loading={true}/>

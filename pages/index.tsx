@@ -9,8 +9,10 @@ const Home: React.FC = () => {
       <HeroBanner/>
       <Category category="horror"/>
       <Category category="drama"/>
+      <Category category="thriller"/>
       <Category category="action"/>
       <Category category="science-fiction"/>
+      <Category category="comedy"/>
     </Layout>
   );
 };

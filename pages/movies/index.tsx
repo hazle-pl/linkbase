@@ -43,7 +43,7 @@ const Films: React.FC = () => {
         {videos.length > 0 ? (
           <SearchResults results={videos} />
         ) : (
-          <p>Nie znaleziono filmów</p>
+          <p className='no-result'>Nie znaleziono filmów</p>
         )}
       </div>
     </Layout>

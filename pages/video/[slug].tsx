@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import { VideoModel } from '@/models/video';
 import Link from 'next/link';
+import Category from '@/components/Category';
 
 const Video: React.FC = () => {
   const router = useRouter();
@@ -39,23 +40,28 @@ const Video: React.FC = () => {
     <Layout>
       {video &&
       <div className="video-content-wrapper">
-        <img className="background" src={video?.background}/>
+        <div className="background">
+          <div className="overlay"/>
+          <img src={video?.background}/>
+        </div>
         <div className="informations">
         <div className="box">
-        <Link href={video.source}>
-          <img className="video" src={video?.thumbnail}/>
-        </Link>
+          <Link className="video" href={video.source}>
+          <i className="fa-solid fa-play"/>
+            <img className="video" src={video.thumbnail}/>
+          </Link>
         <div className="rich-text">
-          <h1>{video?.title}</h1>
-          <p>{video?.description}</p>
+          <h1>{video.title}</h1>
+          <p>{video.description}</p>
         </div>
         </div>
           <div className="rich-text">
-            <p><b>Reżyseria:</b> {video?.director}</p>
-            <p><b>Gatunek:</b> {video?.category}</p>
-            <p><b>Premiera:</b></p>
+            <p><b>Reżyseria:</b> {video.director}</p>
+            <p><b>Gatunek:</b> {video.category}</p>
+            <p><b>Premiera:</b> {video.year}</p>
           </div>
         </div>
+        <Category random={true} similar={true} category={video.category}/>
       </div>
     }
     </Layout>

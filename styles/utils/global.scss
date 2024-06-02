@@ -19,3 +19,9 @@ body{
     max-width: 1920px;
     margin: auto;
 }
+
+body.dark-mode{
+    .overlay{
+        background: linear-gradient(0deg, var(--neutral-000) 0%, transparent 60%);
+    }
+}

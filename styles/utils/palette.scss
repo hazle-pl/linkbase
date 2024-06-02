@@ -1,28 +1,38 @@
-
 :root {
-    //Primary colors
-  --primary-100: #1e90ff;
-  --primary-300: #ffffff;
-  --primary-500: #ffffff;
-  --primary-700: #ffffff;
-  --primary-900: #ffffff;
 
-    //Secondary colors
-  --secondary-100: #1e90ff;
-  --secondary-300: #ffffff;
-  --secondary-500: #ffffff;
-  --secondary-700: #ffffff;
-  --secondary-900: #ffffff;
+  --neutral-000: #ffffff;
+  --neutral-100: rgb(234, 252, 255);
+  --neutral-100-80: rgba(234, 252, 255, 0.8);
+  --neutral-200: rgb(225, 233, 235);
+  --neutral-300: #818181;
+  --neutral-500: #383838;
+  --neutral-700: #1f1e1e;
+  --neutral-900: #0d0c0b;
+  --neutral-900-50: #0d0c0b80;
+  --neutral-1000: #000000;
 
-   //Neutral colors
-   --neutral-000: #ffffff;
-   --neutral-100: rgb(234, 252, 255);
-   --neutral-200: rgb(225, 233, 235);
-   --neutral-300: #818181;
-   --neutral-500: #383838;
-   --neutral-700: #1f1e1e;
-   --neutral-900: #0d0c0b;
-   --neutral-900-50: #0d0c0b80;
-   --neutral-1000: #000000;
+  --dark-neutral-000: #000000;
+  --dark-neutral-100: #181818;
+  --dark-neutral-100-80: rgba(22, 22, 22, 0.8);
+  --dark-neutral-200: #222222;
+  --dark-neutral-300: #818181;
+  --dark-neutral-500: #ffffff;
+  --dark-neutral-700: #ffffff;
+  --dark-neutral-900: #b9b9b9;
+  --dark-neutral-900-50: #ffffff80;
+  --dark-neutral-1000: #ffffff;
 }
 
+body.dark-mode {
+
+  --neutral-000: var(--dark-neutral-000);
+  --neutral-100: var(--dark-neutral-100);
+  --neutral-100-80: var(--dark-neutral-100-80);
+  --neutral-200: var(--dark-neutral-200);
+  --neutral-300: var(--dark-neutral-300);
+  --neutral-500: var(--dark-neutral-500);
+  --neutral-700: var(--dark-neutral-700);
+  --neutral-900: var(--dark-neutral-900);
+  --neutral-900-50: var(--dark-neutral-900-50);
+  --neutral-1000: var(--dark-neutral-1000);
+}

@@ -47,3 +47,13 @@
         background-position: 0% 0; /* Final background position */
       }
 }
+
+body.dark-mode{
+    color: white !important;
+    .video,.content-container,p,a{
+        color: white !important;
+        .rich-text{
+            color: white !important;
+        }
+    }
+}

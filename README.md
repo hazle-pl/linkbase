@@ -63,16 +63,16 @@ Projekt wykorzystuje różne zależności, w tym MongoDB, Mongoose, Next.js, Rea
 1. **Sklonowanie repozytorium**:
    ```bash
    git clone https://github.com/hazle-pl/linkbase.git
-```
+    ```
 
 2. **Zainstalowanie paczek:**:
    ```bash
    npm install
-```
+    ```
 1. **Uruchomienie projektu:**:
    ```bash
    npm run dev
-```
+    ```
 Projekt będzie dostępny pod adresem http://localhost:3000.
 
 ---

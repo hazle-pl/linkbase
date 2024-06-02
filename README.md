@@ -79,6 +79,6 @@ Projekt będzie dostępny pod adresem http://localhost:3000.
 
 ## Hostowanie na Vercelu
 
-Projekt "Linkbase" jest również hostowany na platformie Vercel. Możesz odwiedzić stronę projektu pod adresem linkbase.vercel.app.
+Projekt "Linkbase" jest również hostowany na platformie Vercel. Możesz odwiedzić stronę projektu pod adresem https://linkbase.vercel.app.
 
 ---

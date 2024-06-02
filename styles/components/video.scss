@@ -1,9 +1,16 @@
 .video{
     aspect-ratio: 16/10;
-    background-color: red;
     display: block;
     position: relative;
     height: fit-content;
+
+    &.skeleton{
+        background-image: linear-gradient(to right, var(--neutral-100) 0%, var(--neutral-200), var(--neutral-100) 100%);
+        background-size: 200% 100%;
+        animation: color-animation 3s ease-in-out infinite;
+        border: 2px solid var(--neutral-000);
+    }
+    
 
     .overlay{
         width: 100%;
@@ -27,4 +34,16 @@
         color: var(--neutral-100);
         z-index: 10;
     }
+}
+
+@keyframes color-animation {
+    0% {
+        background-position: 0% 0; /* Initial background position */
+      }
+      50% {
+        background-position: 100% 0; /* Final background position */
+      }
+      100% {
+        background-position: 0% 0; /* Final background position */
+      }
 }

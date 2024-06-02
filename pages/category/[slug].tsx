@@ -30,7 +30,7 @@ const Category: React.FC = () => {
         {videos.length > 0 ? (
           <SearchResults results={videos} />
         ) : (
-          <p>Nie znaleziono filmów dla kategorii: {slug}</p>
+          <p className='no-result'>Nie znaleziono filmów dla kategorii: {slug}</p>
         )}
       </div>
     </Layout>

@@ -21,11 +21,8 @@
                 width: 350px !important;
             }
 
-            @media (max-width: $tablet) {
+            @media (max-width: $tablet) and (min-width: $mobile) {
                 width: 300px !important;
-            }
-            @media screen and (max-width: $mobile) {
-                width: 250px !important;
             }
         }
     }

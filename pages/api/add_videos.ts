@@ -1,4 +1,3 @@
-// pages/api/records.ts
 import { NextApiRequest, NextApiResponse } from 'next';
 import { connectDatabase } from '../../utils/db';
 import Video, { VideoModel } from '../../models/video';

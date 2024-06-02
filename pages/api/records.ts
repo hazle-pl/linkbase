@@ -19,12 +19,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       await connectDatabase();
       const {
         _id,
-        ...updatedFields // Destructure only the updated fields
+        ...updatedFields
       } = req.body;
 
       const updatedRecord = await Video.findByIdAndUpdate(
         _id,
-        updatedFields, // Use only the updated fields
+        updatedFields,
         { new: true }
       );
 

@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Autorzy: Wojciech Borzęcki, Adrian Barabasz, Szymon Jakubowski
+# Linkbase
 
-## Getting Started
+---
 
-First, run the development server:
+## O Projekcie
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Linkbase jest aplikacją internetową stworzoną do zbierania linków oraz informacji o filmach. Projekt wykorzystuje bazę danych MongoDB oraz posiada frontend i backend napisane w Next.js.
+
+---
+
+## Cel Projektu
+
+Celem projektu "Linkbase" jest umożliwienie użytkownikom zbierania, przeglądania i zarządzania informacjami na temat różnych filmów. Główne cele projektu to:
+
+- **Zbieranie Informacji o Filmach**: Projekt umożliwia zbieranie danych na temat różnych filmów, w tym ich tytułów, kategorii, opisów itp. Te informacje są przechowywane w bazie danych MongoDB.
+
+- **Wyszukiwanie Filmów**: Dzięki endpointowi `search`, użytkownicy mogą wyszukiwać filmy na podstawie tytułu. To ułatwia odnalezienie konkretnych filmów w bazie danych.
+
+- **Dodawanie Filmów**: Endpoint `add_videos` pozwala na dodawanie nowych filmów do bazy danych. Dzięki temu projekt może stale rosnąć i gromadzić nowe informacje o filmach.
+
+- **Przeglądanie Filmów**: Użytkownicy mogą przeglądać dostępne filmy korzystając z różnych kategorii, co jest realizowane poprzez frontendowy interfejs użytkownika.
+
+- **Zarządzanie Rekordami**: Funkcja `records` umożliwia zarządzanie rekordami z panelu administratora. Jest to przydatne narzędzie do kontroli i zarządzania danymi w bazie.
+
+- **Stylowanie z Użyciem SCSS**: Projekt wykorzystuje SCSS do stylizacji, a podejście atomowe pozwala na modularność i łatwe zarządzanie styli.
+
+---
+
+## Struktura Projektu
+
+Projekt "Linkbase" składa się z frontendu i backendu, które są napisane w Next.js. Komponenty frontendowe są używane w sposób atomowy, co ułatwia zarządzanie nimi i ich stylizację przy użyciu SCSS.
+
+---
+
+## Komponenty
+
+Projekt składa się z różnych komponentów, w tym:
+
+- Video
+- SearchResults
+- SearchForm
+- Layout
+- HeroBanner
+- Header
+- Footer
+- Category
+- List
+- Category
+
+Każdy z tych komponentów ma określone zadanie i jest używany w odpowiednich miejscach projektu.
+
+---
+
+## Zależności
+
+Projekt wykorzystuje różne zależności, w tym MongoDB, Mongoose, Next.js, React i inne. Każda zależność pełni określoną rolę w funkcjonowaniu projektu.
+
+---
+
+## Instalacja i Uruchomienie Projektu
+
+1. **Sklonowanie repozytorium**:
+   ```bash
+   git clone https://github.com/hazle-pl/linkbase.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Zainstalowanie paczek:**:
+   ```bash
+   npm install
+```
+1. **Uruchomienie projektu:**:
+   ```bash
+   npm run dev
+```
+Projekt będzie dostępny pod adresem http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Hostowanie na Vercelu
 
-## Learn More
+Projekt "Linkbase" jest również hostowany na platformie Vercel. Możesz odwiedzić stronę projektu pod adresem linkbase.vercel.app.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---

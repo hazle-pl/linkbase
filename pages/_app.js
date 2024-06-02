@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }) {
           crossorigin="anonymous" 
           referrerpolicy="no-referrer" 
         />
+        <title>Linkbase - Największa baza filmów</title>
       </Head>
       <Component {...pageProps} />
     </>

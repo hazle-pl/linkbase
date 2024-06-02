@@ -29,7 +29,7 @@ const CategoryList: React.FC = () => {
   return (
     <div className="category-list">
       {categories.map(category => (
-        <Link className="category-element" key={category.value} href={category.value}>{category.label}</Link>
+        <Link className="category-element" key={category.value} href={`/category/${category.value}`}>{category.label}</Link>
       ))}
     </div>
   );

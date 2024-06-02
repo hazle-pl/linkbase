@@ -39,9 +39,13 @@ const Films: React.FC = () => {
 
   return (
     <Layout>
-      {loading && <div>Loading...</div>}
-      {error && <div>Error: {error}</div>}
-      <SearchResults results={videos} />
+      <div className='list-movies'>
+        {videos.length > 0 ? (
+          <SearchResults results={videos} />
+        ) : (
+          <p>Nie znaleziono filmów</p>
+        )}
+      </div>
     </Layout>
   );
 };

@@ -26,6 +26,12 @@
             grid-template-columns: 1fr;
         }
     }
+}
 
-
+.list-movies{
+    .results{
+        .component-content{
+            max-height: none;
+        }
+    }
 }

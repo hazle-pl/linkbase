@@ -7,6 +7,9 @@
     .react-multi-carousel-track{
         gap: 20px;
     }
+    .react-multiple-carousel__arrow {
+        z-index: 100 !important;
+    }
 
     .react-multi-carousel-item{
         transition: 0.25s;

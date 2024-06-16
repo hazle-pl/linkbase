@@ -1,4 +1,3 @@
-// models/record.ts
 import mongoose, { Schema, Document, Model } from 'mongoose';
 
 export interface VideoModel extends Document {

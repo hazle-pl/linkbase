@@ -76,7 +76,7 @@ const Category: React.FC<LayoutProps> = ({ category, similar,random }) => {
       {error && <div>Error: {error}</div>}
       <Carousel responsive={responsive}>
         {videos.map((video,i) => (
-          <Video video={video} key={i} />
+          <Video video={video} key={i} similar={similar} />
         ))}
       </Carousel>
     </div>

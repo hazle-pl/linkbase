@@ -44,7 +44,7 @@ Jako administrator chcę mieć możliwość zarządzania rekordami filmów, taki
 5. **Przeglądanie Podobnych Filmów**:
 Jako użytkownik chcę mieć możliwość przeglądania listy podobnych filmów do aktualnie wybranego, aby odkrywać inne produkcje o podobnej tematyce, gatunku lub stylu. Ta funkcjonalność pozwala użytkownikom na poszerzenie swojego horyzontu filmowego poprzez eksplorację filmów, które są podobne do tych, które już ich zainteresowały. Dzięki temu użytkownicy mogą odkrywać nowe filmy, które mogą ich zainteresować, na podstawie ich preferencji i gustu filmowego.
 
-5. **Dark Mode**:
+6. **Dark Mode**:
 Jako użytkownik chcę mieć możliwość przełączenia aplikacji na tryb ciemny (dark mode), aby zmniejszyć obciążenie oczu podczas korzystania z aplikacji w warunkach o niskim oświetleniu lub w nocy. Ta funkcjonalność umożliwia użytkownikom wygodne dostosowanie wyglądu aplikacji do swoich preferencji i potrzeb, co zwiększa komfort korzystania z niej przez dłuższy czas. Dodatkowo, tryb ciemny może pomóc w oszczędzaniu energii baterii dla urządzeń mobilnych oraz wprowadza nowoczesny i elegancki wygląd aplikacji.
 
 ## Struktura Projektu

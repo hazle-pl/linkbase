@@ -65,8 +65,7 @@ Projekt składa się z różnych komponentów, w tym:
 - Header
 - Footer
 - Category
-- List
-- Category
+- CategoryList
 
 Każdy z tych komponentów ma określone zadanie i jest używany w odpowiednich miejscach projektu.
 

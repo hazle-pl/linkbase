@@ -38,7 +38,10 @@
     "react-toastify": "^10.0.5",
     "react-world-flags": "^1.6.0",
     "sass": "^1.77.8",
-    "shopify-token": "^4.1.0"
+    "shopify-token": "^4.1.0",
+    "video.js": "^8.21.0",
+    "videojs-contrib-ads": "^7.5.2",
+    "videojs-ima": "^2.3.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

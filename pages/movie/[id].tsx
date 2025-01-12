@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next';
+import Script from 'next/script';
 import Layout from '@/components/Common/Layout';
 import HeroBanner from '@/components/Common/HeroBanner';
 import ContainerContent from '@/components/Common/ContentWrapper';
@@ -28,6 +29,26 @@ const MoviePage: React.FC<MovieProps> = ({ movie }) => {
       <ContainerContent>
         <HeroBanner id={movie._id} />
         <p>Podobne</p>
+
+        {/* Skrypt zewnętrzny */}
+        <Script
+          src="https://a.magsrv.com/ad-provider.js"
+          strategy="lazyOnload"
+          async
+        />
+
+        {/* Reklama */}
+        <ins className="eas6a97888e37" data-zoneid="5515014"></ins>
+
+        {/* Kod inicjujący AdProvider */}
+        <Script
+          id="ad-provider-init"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `(AdProvider = window.AdProvider || []).push({"serve": {}});`,
+          }}
+        />
+
         <GenreCarousel genre={movie.genre} />
       </ContainerContent>
     </Layout>
@@ -36,7 +57,7 @@ const MoviePage: React.FC<MovieProps> = ({ movie }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.params!;
-  
+
   // Dynamically determine API URL based on environment
   const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 

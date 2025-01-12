@@ -27,8 +27,8 @@ const MoviePage: React.FC<MovieProps> = ({ movie }) => {
     <Layout>
       <ContainerContent>
         <HeroBanner id={movie._id} />
-        Podobne 
-        <GenreCarousel genre={movie.genre}/>
+        <p>Podobne</p>
+        <GenreCarousel genre={movie.genre} />
       </ContainerContent>
     </Layout>
   );
@@ -36,9 +36,12 @@ const MoviePage: React.FC<MovieProps> = ({ movie }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.params!;
+  
+  // Dynamically determine API URL based on environment
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
   try {
-    const res = await fetch(`http://localhost:3000/api/media/${id}`);
+    const res = await fetch(`${baseUrl}/api/media/${id}`);
     if (!res.ok) {
       return { notFound: true };
     }

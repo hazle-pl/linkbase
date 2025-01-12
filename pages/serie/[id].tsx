@@ -5,7 +5,7 @@ import ContainerContent from '@/components/Common/ContentWrapper';
 import SeriesDetail from '@/components/Common/SeriesDetails';
 
 interface SeriesProps {
-    serie: {
+  serie: {
     _id: string;
     title: string;
     genre: string;
@@ -26,8 +26,8 @@ const SeriesPage: React.FC<SeriesProps> = ({ serie }) => {
   return (
     <Layout>
       <ContainerContent>
-          <HeroBanner id={serie._id} />
-          <SeriesDetail title={serie.title}/>
+        <HeroBanner id={serie._id} />
+        <SeriesDetail title={serie.title} />
       </ContainerContent>
     </Layout>
   );
@@ -36,8 +36,11 @@ const SeriesPage: React.FC<SeriesProps> = ({ serie }) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.params!;
 
+  // Dynamically determine API URL based on environment
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
   try {
-    const res = await fetch(`http://localhost:3000/api/media/${id}`);
+    const res = await fetch(`${baseUrl}/api/media/${id}`);
     if (!res.ok) {
       return { notFound: true };
     }
@@ -45,7 +48,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const serie = await res.json();
     return { props: { serie } };
   } catch (error) {
-    console.error('Error fetching movie:', error);
+    console.error('Error fetching series:', error);
     return { notFound: true };
   }
 };

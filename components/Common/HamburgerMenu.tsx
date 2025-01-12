@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useState } from 'react';
 
 const HamburgerMenu = () => {
@@ -23,8 +24,8 @@ const HamburgerMenu = () => {
             ✕
           </button>
           <div className="categories">
-            <a href="/movies" onClick={toggleMenu}>Filmy</a>
-            <a href="/series" onClick={toggleMenu}>Seriale</a>
+            <Link href="/movies" onClick={toggleMenu}>Filmy</Link>
+            <Link href="/series" onClick={toggleMenu}>Seriale</Link>
           </div>
         </div>
       )}

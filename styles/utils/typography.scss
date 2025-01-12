@@ -1,74 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-body{
-    font-family: "Lato", sans-serif;
+body {
+    font-family: "Montserrat", serif;
 }
 
-*{
+p,h1,h2,h3,h4,h5,a{
+    padding: 0px;
     margin: 0px;
-}
-
-p{
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-a{
-    font-size: 18px;
-    text-decoration: none;
-    color: var(--neutral-900);
-}
-
-//Headings
-
-h1{
-    font-size: 48px;
-    margin-bottom: 10px;
-
-    @media screen and (max-width: $tablet) {
-        font-size: 24px;
-      }
-}
-
-h2{
-    font-size: 24px;
-
-    @media screen and (max-width: $tablet) {
-        font-size: 18px;
-      }
-}
-
-//Buttons
-
-.btn{
-
-    width: fit-content;
-
-    &.watch{
-        background-color: var(--neutral-000);
-        padding: 12px 24px;
-        color: var(--neutral-900);
-        text-decoration: none;
-        display: flex;
-        gap: 12px;
-        align-items: center;
-        border-radius: 12px;
-    }
-}
-
-//RichText
-.rich-text{
-    display: flex;
-    flex-direction: column;
-
-    >*:nth-last-child(1){
-        margin-bottom: 0px;
-    }
-}
-
-.no-result{
-    margin-top: 200px;
-    font-size: 40px;
-    margin-bottom: 200px;
-    text-align: center;
 }

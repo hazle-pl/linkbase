@@ -1,4 +1,4 @@
-@import './media-queries.scss';
-@import './palette.scss';
-@import './typography.scss';
-@import './global.scss';
+@import '../utils/palette.scss';
+@import '../utils/breakpoint.scss';
+@import '../utils/settings.scss';
+@import '../utils/typography.scss';

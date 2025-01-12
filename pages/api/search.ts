@@ -1,25 +1,27 @@
+import { connectDatabase } from '@/lib/mongodb';
+import Media from '@/models/Media';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { connectDatabase } from '../../utils/db';
-import Video, { VideoModel } from '../../models/video';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'GET') {
-    const { title } = req.query;
-    try {
-      await connectDatabase();
-      let query = {};
-      if (title && title.toString().trim() !== '') {
-        query = { title: { $regex: title.toString(), $options: 'i' } };
-        const films = await Video.find(query);
-        res.status(200).json(films);
-      } else {
-        res.status(200).json([]);
-      }
-    } catch (error) {
-      console.error('Error fetching films:', error);
-      res.status(500).json({ error: 'Error fetching films' });
+  if (req.method !== 'GET') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  try {
+    await connectDatabase();
+
+    const { query } = req.query;
+    if (!query || typeof query !== 'string') {
+      return res.status(400).json({ error: 'Query parameter is required and must be a string' });
     }
-  } else {
-    res.status(405).json({ error: 'Method Not Allowed' });
+
+    const media = await Media.find({
+      title: { $regex: query, $options: 'i' },
+    }).limit(10);
+
+    res.status(200).json(media);
+  } catch (error) {
+    console.error('Error fetching media by query:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 }

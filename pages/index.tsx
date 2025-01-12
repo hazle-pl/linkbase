@@ -1,18 +1,18 @@
-import React from 'react';
-import Layout from '../components/Layout';
-import Category from '@/components/Category';
-import HeroBanner from '@/components/HeroBanner';
+import ContainerContent from "@/components/Common/ContentWrapper";
+import GenreCarousel from "@/components/Common/GenreCarousel";
+import Layout from "@/components/Common/Layout";
+import HeroBanner from "@/components/Common/HeroBanner";
 
 const Home: React.FC = () => {
   return (
     <Layout>
-      <HeroBanner/>
-      <Category category="horror"/>
-      <Category category="drama"/>
-      <Category category="thriller"/>
-      <Category category="action"/>
-      <Category category="science-fiction"/>
-      <Category category="comedy"/>
+      <ContainerContent>
+        <HeroBanner/>
+        <GenreCarousel sortByPopularity={true} type="movie" limit={10} />
+        <GenreCarousel sortByPopularity={true} type="serie" limit={10} />
+        <GenreCarousel genre="Horror" />
+        <GenreCarousel genre="Dramat" />
+      </ContainerContent>
     </Layout>
   );
 };

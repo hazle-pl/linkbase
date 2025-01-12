@@ -1,45 +1,166 @@
-.hero-banner{
-    z-index: 5;
-    position: relative;
-    border-radius: 25px;
-    overflow: hidden;
-    margin-bottom: 30px;
-    height: 70vh;
+.hero-banner {
+    display: grid;
+    gap: 30px;
+    padding: 120px 0;
+    grid-template-areas: 
+            "title title title title"
+            "trailer trailer subtitle subtitle"
+            "trailer trailer image infobox";
 
-    img{
-        object-fit: cover;
-        max-height: 70vh;
-        width: 100%;
-        object-position: top;
+            @media (max-width: $tablet) { 
+              grid-template-areas: 
+            "title title title"
+            "subtitle subtitle subtitle"
+            "trailer trailer image"
+            "trailer trailer infobox"
+            "subtitle subtitle subtitle";
+            }
 
-        @media screen and (max-width: $tablet) {
-            height: 70vh;
-          }
-    }
+            @media (max-width: $mobile) { 
+              gap: 15px;
+              grid-template-areas: 
+            "title"
+            "trailer"
+            "subtitle"
+            "infobox";
+            }
 
-    .content-container{
-        position: absolute;
-        bottom: 40%;
-        transform: translatey(50%);
-        z-index: 10;
+            > * {
+              border-radius: 20px;
+              overflow: hidden;
+            }
 
-        h1{
-            color: var(--neutral-100);
-        }
-        p{
-            color: var(--neutral-200);
-        }
+            .title-box {
+              grid-area: title;
+              display: block;
 
-        @media screen and (max-width: $tablet) {
-            bottom: 30%;
-          }
-    }
+              h1 {
+                font-size: 150px;
+                margin: 0;
+                text-transform: uppercase;
 
-    .overlay{
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(0deg, var(--neutral-900) 10%, transparent 100%);
-        position: absolute;
-        top: 0;
-    }
-}
+                @media (max-width: $desktop) { 
+                  font-size: 100px;
+                }
+
+                @media (max-width: $tablet) { 
+                  font-size: 50px;
+                }
+
+                @media (max-width: $mobile) { 
+                  font-size: 30px;
+                }
+              }
+            }
+
+            .subtitle-box {
+              grid-area: subtitle;
+              display: flex;
+              align-items: flex-end;
+
+              h2 {
+                font-size: 50px;
+                margin: 0;
+                text-transform: uppercase;
+
+                a {
+                  color: var(--white);
+                  text-decoration: none;
+                }
+
+                @media (max-width: $desktop) { 
+                  font-size: 40px;
+                }
+
+                @media (max-width: $tablet) { 
+                  font-size: 30px;
+                }
+              }
+            }
+
+            .trailer-box {
+              grid-area: trailer;
+              background-color: transparent;
+              position: relative;
+              z-index: 2;
+              display: flex;
+              flex-direction: row;
+              align-items: flex-end;
+              justify-content: space-around;
+              width: 50vw;
+              aspect-ratio: 20 / 9;
+              height: 100%;
+
+              @media (max-width: $desktop) { 
+                width: 40vw;
+              }
+
+              @media (max-width: $tablet) { 
+                width: 100%;
+                aspect-ratio: 1;
+              }
+
+              iframe {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                transform: scale(3);
+              }
+            }
+
+            .image-box {
+              grid-area: image;
+              display: block;
+              width: 30vw;
+
+              @media (max-width: $mobile) { 
+                display: none ;
+              }
+
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+
+            .info-box {
+              grid-area: infobox;
+              background-color: var(--white);
+              color: var(--black);
+              padding: 30px;
+              gap: 15px;
+              width: auto;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              align-items: flex-end;
+
+              .text {
+                display: flex;
+                gap: 15px;
+                flex-direction: column;
+              }
+
+              p {
+                display: block;
+                text-overflow: ellipsis;
+                word-wrap: break-word;
+                overflow: hidden;
+                max-height: 7.3em;
+              }
+
+              a {
+                color: var(--black);
+                text-decoration: none;
+              }
+
+              i {
+                font-size: 100px;
+                rotate: -45deg;
+                width: max-content;
+              }
+            }
+  }
+  

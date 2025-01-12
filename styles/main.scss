@@ -1,2 +1,6 @@
-@import './utils/index.scss';
-@import './components/index.scss'
+@import 'utils';
+@import 'components';
+
+form {
+    padding: 60px 0;
+}

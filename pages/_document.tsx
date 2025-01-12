@@ -5,6 +5,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+        <meta name="6a97888e-site-verification" content="9ffe74e5b1173c85f9d26fb9bf1dcf86"/>
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"

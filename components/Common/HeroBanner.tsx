@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import YouTubeBackground from './YouTubeBackground';
 
 interface MediaItem {
   _id: string;
@@ -55,7 +54,7 @@ const HeroBanner: React.FC<HeroBannerProps> = ({ id }) => {
         <img src={featuredMedia.backgroundImage}/>
       </div>
       <div className="trailer-box">
-        <YouTubeBackground trailer={featuredMedia.trailer}/>
+
       </div>
       <div className='info-box'>
         <div className="text">

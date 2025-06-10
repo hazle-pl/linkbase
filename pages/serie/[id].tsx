@@ -37,7 +37,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.params!;
 
   // Dynamically determine API URL based on environment
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://localhost:3000';
 
   try {
     const res = await fetch(`${baseUrl}/api/media/${id}`);

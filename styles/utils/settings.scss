@@ -1,15 +1,25 @@
 body {
   margin: 0;
   padding: 0;
-}
+  background-color: var(--black);
+  color: var(--white);
 
-.content-wrapper {
-  max-width: 100%;
-  margin: auto;
-  padding: 0 15px;
-}
+  #__next {
+    display: flex;
 
-main {
-  background-color: var(--pink);
-  color: var(--white)
+    aside {
+      width: 200px;
+      height: 100vh;
+    }
+
+    main {
+      width: calc(100vw - 200px);
+      height: 100vh;
+      overflow: auto;
+
+      header {
+        position: fixed;
+      }
+    }
+  }
 }
